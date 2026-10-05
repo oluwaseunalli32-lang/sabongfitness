@@ -1,0 +1,10 @@
+services:
+  - type: worker
+    name: fitness-tracker-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
