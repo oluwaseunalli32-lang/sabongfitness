@@ -63,7 +63,7 @@ def get_daily_summary(user_id):
         meal_result = cursor.fetchone()
         meal_calories = meal_result[0] or 0
         meal_protein = meal_result[1] or 0
-        
+
         # Sum of calories burned from workouts
         cursor.execute(
             "SELECT SUM(calories_burned) FROM workouts WHERE user_id = ? AND log_date = ?",
@@ -71,5 +71,5 @@ def get_daily_summary(user_id):
         )
         workout_result = cursor.fetchone()
         workout_calories = workout_result[0] or 0
-        
+
         return meal_calories, meal_protein, workout_calories
